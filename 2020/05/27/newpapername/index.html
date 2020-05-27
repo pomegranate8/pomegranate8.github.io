@@ -171,7 +171,176 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>————-原文———-（2020/5/27)<br>闭包是什么及优缺点？举例。用let怎么实现？闭包就是当外部函数返回，内部函数还可以继续访问外部函数的属性和方法的函数。缺点：内存泄漏。  前后端传递 <strong>‘get’</strong>和<strong>‘post’</strong>的区别？ get为从服务器获取数据，post为向服务器上传数据；get会将传输数据暴露在url中，安全性略低，post则不会，但二者安全性又是同一等级；get有缓存，post无缓存；get可传递数据量小，post传递数据量大，没有限制。</p>
+                <p>————-原文———-（2020/5/27)<br>今天复习了HTML<br>1、语义化<br>2、新标签新特性<br>3、input和textarea的区别<br>4、用一个div模拟textarea的实现<br>5、移动设备忽略将页面中的数字识别为电话号码的方法</p>
+<p>1，html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分HTML 和HTML5？</p>
+<ul>
+<li>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</li>
+</ul>
+<p>绘画 canvas;</p>
+<p>用于媒介回放的 video 和 audio 元素;</p>
+<p>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;</p>
+<p>sessionStorage 的数据在浏览器关闭后自动删除;</p>
+<p>语意化更好的内容元素，比如 article、footer、header、nav、section;</p>
+<p>表单控件，calendar、date、time、email、url、search;</p>
+<p>新的技术webworker, websocket, Geolocation;</p>
+<p>移除的元素：</p>
+<p>纯表现的元素：basefont，big，center，font, s，strike，tt，u;</p>
+<p>对可用性产生负面影响的元素：frame，frameset，noframes；</p>
+<ul>
+<li>支持HTML5新标签：</li>
+</ul>
+<p>IE8/IE7/IE6支持通过document.createElement方法产生的标签，</p>
+<p>可以利用这一特性让这些浏览器支持HTML5新标签，</p>
+<p>浏览器支持新标签后，还需要添加标签默认的样式。</p>
+<p>当然也可以直接使用成熟的框架、比如html5shim;</p>
+<p>2，HTML5新标签新特性：<br>HTML5是关于图像，位置，存储，速度的优化和改进<br>新特性：<br>（1）语义化<br>（2）本地存储<br>（3）设备兼容<br>（4）连接特性，能够帮助我们将数据推送到客户端<br>（5）网页多媒体特性<br>（6）三维、图形及特效特性<br>（7）性能与集成特性<br>（8）css3特性<br>新标签：<br>HTML5新标签归类<br>（1）结构标签</p>
+<head>定义页面或者区域头部
+<main>规定文档主要内容
+<footer>定义页面或者区域底部
+<article>定义一篇文章
+<nav>定义导航链接
+<scetion>定义一个区域
+<aside>定义页面内容部分侧边栏
+<hgroup>用于对网页或者区域段的标题组合
+<figure>定义一组媒体内容以及标题
+<figcaption>定义figure元素标题
+<address>定义文章拥有者的联系信息
+（2）行标记
+<time>定义时间、日期
+<mark>高亮显示文字
+（3）多媒体交互标签
+<video>定义一个视频
+<audio>定义一个音频
+<source>定义媒体资源标签
+<canvas>定义图形
+<embed>定义可交互的内容或者插件
+（4）web应用标签
+<progress>状态标签、进度条
+<mark>定义有标记的文本（默认是黄色选中内容）
+<output>定义一些输出内容，计算表单结果配合oninput事件
+<datalist>为input标记定义一个下拉option
+（用法：
+<input type="text" list="list1">
+<datalist id="list1">
+<option>
+.
+.
+.
+<option>
+</datalist>
+）
+2、Doctype作用？标准模式与兼容模式各有什么区别?
+（1）、<!DOCTYPE>声明位于位于HTML文档中的第一行，处于<html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+
+<p>（2）、标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。<br>3，HTML5为什么只需要写<!DOCTYPE HTML>？</p>
+<p>HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
+<p>4、行内元素有哪些？块级元素有哪些？空(void)元素有那些？</p>
+<p>首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。</p>
+<p>（1）行内元素有：ab span img input select strong（强调的语气）</p>
+<p>（2）块级元素有：divul ol li dl dt dd h1 h2 h3 h4…p</p>
+<p>（3）常见的空元素：</p>
+<p><br><hr> <img> <input> <link><meta></p>
+<p>鲜为人知的是：</p>
+<p><area><base> <col><command> <embed> <keygen><param> <source><track> <wbr></p>
+<p>不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异</p>
+<p>5、页面导入样式时，使用link和@import有什么区别？</p>
+<p>（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS,定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;</p>
+<p>（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;</p>
+<p>（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;</p>
+<p>6、介绍一下你对浏览器内核的理解？</p>
+<p>主要分成两部分：渲染引擎(layoutengineer或RenderingEngine)和JS引擎。</p>
+<p>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。</p>
+<p>JS引擎则：解析和执行javascript来实现网页的动态效果。</p>
+<p>最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<p>7、常见的浏览器内核有哪些？</p>
+<p>Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]</p>
+<p>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等</p>
+<p>Presto内核：Opera7及以上。 [Opera内核原为：Presto，现为：Blink;]</p>
+<p>Webkit内核：Safari,Chrome等。 [ Chrome的：Blink（WebKit的分支）]</p>
+<p>8、简述一下你对HTML语义化的理解？</p>
+<p>用正确的标签做正确的事情。</p>
+<p>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;</p>
+<p>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;</p>
+<p>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;</p>
+<p>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+<p>9、HTML5的离线储存怎么使用，工作原理能不能解释一下？</p>
+<p>在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。</p>
+<p>原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。</p>
+<p>如何使用：</p>
+<p>（1）页面头部像下面一样加入一个manifest的属性；</p>
+<p>（2）在cache.manifest文件的编写离线存储的资源；</p>
+<p>CACHEMANIFEST</p>
+<p>#v0.11</p>
+<p>CACHE:</p>
+<p>js/app.js</p>
+<p>css/style.css</p>
+<p>NETWORK:</p>
+<p>resourse/logo.png</p>
+<p>FALLBACK:</p>
+<p>//offline.html</p>
+<p>（3）在离线状态时，操作window.applicationCache进行需求实现。</p>
+<p>10、浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</p>
+<p>在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。</p>
+<p>离线的情况下，浏览器就直接使用离线存储的资源。</p>
+<p>11、请描述一下cookies，sessionStorage和localStorage 的区别？</p>
+<p>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。</p>
+<p>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。</p>
+<p>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。</p>
+<p>存储大小：</p>
+<p>cookie数据大小不能超过4k。</p>
+<p>sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。</p>
+<p>有期时间：</p>
+<p>localStorage 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；</p>
+<p>sessionStorage 数据在当前浏览器窗口关闭后自动删除。</p>
+<p>cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</p>
+<p>12、iframe有那些缺点？</p>
+<p>*iframe会阻塞主页面的Onload事件；</p>
+<p>*搜索引擎的检索程序无法解读这种页面，不利于SEO;</p>
+<p>*iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</p>
+<p>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript</p>
+<p>动态给iframe添加src属性值，这样可以绕开以上两个问题。</p>
+<p>13、Label的作用是什么？是怎么用的？</p>
+<p>label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</p>
+<p><label for="Name">Number:</label></p>
+<p>&lt;input type=“text“name=”Name”id=”Name”/&gt;</p>
+<p><label>Date:&lt;inputtype=”text”name=”B”/&gt;</label></p>
+<p>HTML5的form如何关闭自动完成功能？</p>
+<p>给不想要提示的 form 或某个 input 设置为 autocomplete=off。</p>
+<p>14、如何实现浏览器内多个标签页之间的通信?(阿里)</p>
+<p>WebSocket、SharedWorker；</p>
+<p>也可以调用localstorge、cookies等本地存储方式；</p>
+<p>localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，</p>
+<p>我们通过监听事件，控制它的值来进行页面信息通信；</p>
+<p>注意quirks：Safari 在无痕模式下设置localstorge值时会抛出QuotaExceededError 的异常；</p>
+<p>15、webSocket如何兼容低浏览器？(阿里)</p>
+<p>Adobe Flash Socket 、</p>
+<p>ActiveX HTMLFile (IE) 、</p>
+<p>基于multipart 编码发送XHR 、</p>
+<p>基于长轮询的XHR</p>
+<p>16、页面可见性（PageVisibility API）可以有哪些用途？</p>
+<p>通过visibilityState 的值检测页面当前是否可见，以及打开网页的时间等;</p>
+<p>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放；</p>
+<p>17、如何在页面上实现一个圆形的可点击区域？</p>
+<p>（1）map+area或者svg</p>
+<p>（2）border-radius</p>
+<p>（3）纯js实现需要求一个点在不在圆上简单算法、获取鼠标坐标等等</p>
+<p>实现不使用border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</p>
+<div></div>
+
+<p>网页验证码是干嘛的，是为了解决什么安全问题。</p>
+<p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；</p>
+<p>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
+<p>18、title与h1的区别、b与strong的区别、i与em的区别？</p>
+<p>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；</p>
+<p>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<strong>会重读，而<B>是展示强调内容。</p>
+<p>i内容展示为斜体，em表示强调的文本；</p>
+<p>Physical Style Elements – 自然样式标签</p>
+<p>b, i, u, s, pre</p>
+<p>Semantic Style Elements – 语义样式标签</p>
+<p>strong, em, ins, del, code</p>
+<p>应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签</p>
+<p>19，<br>（1）input和textarea的区别<br><textarea>标签是成对的，有结束标签进行闭合，标签的内容写在标签对中间；<input>是单个标签，标签的内容通过 value 属性设置；<br><textarea>的值是纯文本；<input>的值根据类型不同而不同；<br><textarea>没有type属性；<input>有多种type来满足表单与用户的数据交互；<br><textarea>的值可以是多行的，并且有rows和cols来控制多行结构；<input>的值是单行的；<br>（2）用div模拟textarea的步骤：<br>给 div 添加一个HTML全局属性：contenteditable=”true”，使 div 元素变成用户可编辑的;<br>给 div 添加样式 resize: vertical;，使 div 可以被用户调整尺寸，注意：别忘了设置 overflow: auto; 样式，因为resize样式不适用于overflow: visible;的块，不然 resize 不起效哦；<br>增加一个属性：placeholder=”I am placeholder”；<br>通过 CSS 选择器获取并显示 placeholder 的值；</p>
+<p>闭包是什么及优缺点？举例。用let怎么实现？闭包就是当外部函数返回，内部函数还可以继续访问外部函数的属性和方法的函数。缺点：内存泄漏。  前后端传递 <strong>‘get’</strong>和<strong>‘post’</strong>的区别？ get为从服务器获取数据，post为向服务器上传数据；get会将传输数据暴露在url中，安全性略低，post则不会，但二者安全性又是同一等级；get有缓存，post无缓存；get可传递数据量小，post传递数据量大，没有限制。</p>
 
                 <hr>
                 
